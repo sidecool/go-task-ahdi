@@ -1,0 +1,39 @@
+{{ define "View" }}
+  {{ template "Header" }}
+   <h1>View Task</h1>
+    {{ template "Menu"  }}
+    <div class="container"> 
+     <div class="row">
+      <div class="col-25">
+       <label>Detail Task:</label>
+      </div>
+      <div class="col-75">
+       <label>{{ .DETAIL }}</label>
+      </div>
+     </div> 
+     <div class="row">
+      <div class="col-25">
+       <label>Assignee:</label>
+      </div>
+      <div class="col-75">
+       <label>{{ .ASSIGNEE }}</label>
+      </div>
+     </div>     
+     <div class="row">
+      <div class="col-25">
+       <label>Deadline:</label>
+      </div>
+      <div class="col-75">
+       <label>{{ .DEADLINE }}</label>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-25"></div>
+      <div class="col-75">
+       <label><a href="/edit?id={{ .ID }}">Edit</a></label>
+      </div>      
+     </div>
+    </form>
+   </div>                    
+  {{ template "Footer" }}
+{{ end }}

@@ -1,0 +1,40 @@
+{{ define "New" }}
+  {{ template "Header" }}
+   <h1>New Task</h1>
+    {{ template "Menu" }} 
+   <div class="container"> 
+    <form method="POST" action="insert">
+     <div class="row">
+      <div class="col-25">
+       <label for="fdetail"> Detail Task </label>
+      </div>
+      <div class="col-75">
+       <input type="text" id="fdetail" name="detail" /><br />
+      </div>
+     </div> 
+     <div class="row">
+      <div class="col-25">
+       <label for="fassignee"> Assignee </label>
+      </div>
+      <div class="col-75">
+       <input type="text" id="fassignee" name="assignee" /><br />
+      </div>
+     </div>     
+     <div class="row">
+      <div class="col-25">
+       <label for="fdeadline"> Deadline </label>
+      </div>
+      <div class="col-75">
+       <input type="date" id="fdeadline" name="deadline" /><br />
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-25"></div>
+      <div class="col-75">
+       <input type="submit" value="Save" />
+      </div>      
+     </div>
+    </form>
+   </div>
+  {{ template "Footer" }}
+{{ end }}

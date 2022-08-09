@@ -1,0 +1,37 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+   <h1>Home Task</h1>
+    {{ template "Menu"  }}
+    <table id="myTable">
+      <thead>
+      <tr>
+        <td style="display: none">ID</td>
+        <td>Detail Task</td>
+        <td>Assignee</td>
+        <td>Deadline</td>
+        <td>Action</td>
+      </tr>
+       </thead>
+       <tbody>
+    {{ range . }}
+      <tr>
+        <td style="display: none">{{ .ID }}</td>
+        <td style="width: 50%">{{ .DETAIL }} </td>
+        <td>{{ .ASSIGNEE }} </td> 
+        <td>{{ .DEADLINE }} </td> 
+        <td>
+            {{ if (eq .STATUS "undone")}}
+                <a class="undone" href="/update-status?id={{ .ID }}">Marked Done</a>
+            {{ else }}
+                <a class="done" href="#">Done</a>
+            {{ end }}
+            <a href="/view?id={{ .ID }}">View</a>
+            <a href="/edit?id={{ .ID }}">Edit</a>
+            <a href="/delete?id={{ .ID }}">Delete</a>
+        </td>
+      </tr>
+    {{ end }}
+       </tbody>
+    </table>
+  {{ template "Footer" }}
+{{ end }}
